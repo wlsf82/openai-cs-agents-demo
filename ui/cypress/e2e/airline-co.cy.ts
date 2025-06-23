@@ -68,4 +68,30 @@ describe('Airline Co.', () => {
       .find('div:contains(BB8)')
       .should('be.visible')
   })
+
+  it('hides and shows the conversation context', () => {
+    cy.get('.lucide-chevron-down')
+      .eq(2)
+      .click()
+
+    cy.contains('h2', 'Conversation Context')
+      .should('be.visible')
+      .next()
+      .should('not.exist')
+
+    cy.get('.lucide-chevron-right').click()
+
+    cy.contains('h2', 'Conversation Context')
+      .should('be.visible')
+      .next()
+      .as('context')
+      .should('be.visible')
+      .find('div:contains(passenger_name: Byro)')
+      .should('be.visible')
+
+    cy.get('@context')
+      .should('be.visible')
+      .find('div:contains(account_number: 442679)')
+      .should('be.visible')
+  })
 })
