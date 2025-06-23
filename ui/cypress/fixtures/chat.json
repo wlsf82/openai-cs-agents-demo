@@ -37,6 +37,20 @@
       "handoffs": [],
       "tools": [],
       "input_guardrails": []
+    },
+    {
+      "name": "R5D4",
+      "description": "Star Wars robot",
+      "handoffs": [],
+      "tools": [],
+      "input_guardrails": []
+    },
+    {
+      "name": "C1-10P",
+      "description": "Star Wars robot",
+      "handoffs": [],
+      "tools": [],
+      "input_guardrails": []
     }
   ],
   "guardrails": []
