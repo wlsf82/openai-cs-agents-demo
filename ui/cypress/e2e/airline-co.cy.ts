@@ -24,7 +24,7 @@ describe('Airline Co.', () => {
       .should('be.visible')
   })
 
-  it('gets an answer just after asking a question to the active agent', () => {
+  it('gets an answer right after asking a question to the active agent', () => {
     const updatedChat = {
       ...chatObj,
       messages
