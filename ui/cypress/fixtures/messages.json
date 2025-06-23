@@ -1,0 +1,16 @@
+[
+  {
+    "id": "123ABC",
+    "content": "We have one tomorrow at 3pm.",
+    "role": "assistant",
+    "agent": "C3PO",
+    "timestamp": "Tue Jun 24 2025 00:17:13 GMT+0200 (Central European Summer Time)"
+  },
+  {
+    "id": "123ABC",
+    "content": "Does that work for you?",
+    "role": "assistant",
+    "agent": "C3PO",
+    "timestamp": "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
+  }
+]

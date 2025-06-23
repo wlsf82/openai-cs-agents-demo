@@ -1,0 +1,43 @@
+{
+  "conversation_id": "af4a5f3e-1f3d-409b-a2f8-bc43c6669be9",
+  "current_agent": "C3PO",
+  "messages": [{
+    "id": "123ABC",
+    "content": "Hey, there! How can I help you?",
+    "role": "assistant",
+    "agent": "C3PO",
+    "timestamp": "Tue Jun 24 2025 00:16:13 GMT+0200 (Central European Summer Time)"
+  }],
+  "events": [],
+  "context": {
+    "passenger_name": "Byro",
+    "confirmation_number": "8875",
+    "seat_number": "3A",
+    "flight_number": "JK333",
+    "account_number": "442679"
+  },
+  "agents": [
+    {
+      "name": "C3PO",
+      "description": "Star Wars robot",
+      "handoffs": [],
+      "tools": [],
+      "input_guardrails": []
+    },
+    {
+      "name": "R2D2",
+      "description": "Star Wars robot",
+      "handoffs": [],
+      "tools": [],
+      "input_guardrails": []
+    },
+    {
+      "name": "BB8",
+      "description": "Star Wars robot",
+      "handoffs": [],
+      "tools": [],
+      "input_guardrails": []
+    }
+  ],
+  "guardrails": []
+}
