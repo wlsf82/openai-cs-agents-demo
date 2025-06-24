@@ -69,6 +69,34 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 800}, () => {
       .should('be.visible')
   })
 
+  it('hides and shows the guardrails', () => {
+    cy.get('.lucide-chevron-down')
+      .eq(1)
+      .click()
+
+    cy.contains('h2', 'Guardrails')
+      .should('be.visible')
+      .next()
+      .should('not.exist')
+
+    cy.get('.lucide-chevron-right').click()
+
+    cy.contains('h2', 'Guardrails')
+      .should('be.visible')
+      .next()
+      .as('context')
+      .should('be.visible')
+      .find('div:contains(Relevance Guardrail)')
+      .should('be.visible')
+      .and('contain', 'Passed')
+
+    cy.get('@context')
+      .should('be.visible')
+      .find('div:contains(Jailbreak Guardrail)')
+      .should('be.visible')
+      .and('contain', 'Passed')
+  })
+
   it('hides and shows the conversation context', () => {
     cy.get('.lucide-chevron-down')
       .eq(2)
