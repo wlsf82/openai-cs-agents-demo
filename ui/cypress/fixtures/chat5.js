@@ -1,23 +1,38 @@
 module.exports = {
-  conversation_id: "b7e6e2b1-2c4d-4f8e-9a1b-1a2e3c4d5e6f",
-  current_agent: "C3PO",
-  messages: [{
-    id: "123ABC",
-    content: "Hey, there! How can I help you?",
-    role: "assistant",
-    agent: "C3PO",
-    timestamp: "Tue Jun 24 2025 00:16:13 GMT+0200 (Central European Summer Time)"
-  }],
-  events: [
+  conversation_id: "f1a2b3c4-d5e6-7f8a-9b0c-1d2e3f4a5b6c",
+  current_agent: "R2D2",
+  messages: [
     {
-      id: "e1f2d3c4-b5a6-4789-8c7d-6e5f4a3b2c1d",
-      type: "context_update",
-      agent: "R5D4",
-      content: "Client Elise cancelled her flight.",
-      timestamp: "Tue Jun 20 2025 01:16:13 GMT+0200 (Central European Summer Time)",
-      metadata: {}
+      id: "123ABC",
+      content: "There you go.",
+      role: "assistant",
+      agent: "R2D2",
+      timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      id: "123ABC",
+      content: "You are booked for tomorrow at 3pm for the flight number AB123 to NY.",
+      role: "assistant",
+      agent: "R2D2",
+      timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      id: "123ABC",
+      content: "Your seat nuber is: 5A.",
+      role: "assistant",
+      agent: "R2D2",
+      timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      id: "123ABC",
+      content: "Have a good flight!",
+      role: "assistant",
+      agent: "R2D2",
+      timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     }
-  ],
+  ]
+  ,
+  events: [],
   context: {
     passenger_name: "Byro",
     confirmation_number: "8875",
@@ -70,7 +85,7 @@ module.exports = {
   ],
   guardrails: [
     {
-      id: "f1e2d3c4-b5a6-4789-8c7d-6e5f4a3b2c1d",
+      id: "c5d6e7f8-a9b0-4123-9c4d-5e6f7a8b9c0d",
       name: "Relevance Guardrail",
       input: [],
       reasoning: "",
@@ -78,7 +93,7 @@ module.exports = {
       timestamp: "1750725739"
     },
     {
-      id: "a2b3c4d5-e6f7-4890-9a1b-2c3d4e5f6a7b",
+      id: "d6e7f8a9-b0c1-4234-9d5e-6f7a8b9c0d1e",
       name: "Jailbreak Guardrail",
       input: [],
       reasoning: "",

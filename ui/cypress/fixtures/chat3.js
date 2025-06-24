@@ -1,23 +1,24 @@
 module.exports = {
-  conversation_id: "b7e6e2b1-2c4d-4f8e-9a1b-1a2e3c4d5e6f",
+  conversation_id: "d9e8f7c6-b5a4-3e2d-1c0b-9a8e7d6c5b4a",
   current_agent: "C3PO",
-  messages: [{
-    id: "123ABC",
-    content: "Hey, there! How can I help you?",
-    role: "assistant",
-    agent: "C3PO",
-    timestamp: "Tue Jun 24 2025 00:16:13 GMT+0200 (Central European Summer Time)"
-  }],
-  events: [
+  messages: [
     {
-      id: "e1f2d3c4-b5a6-4789-8c7d-6e5f4a3b2c1d",
-      type: "context_update",
-      agent: "R5D4",
-      content: "Client Elise cancelled her flight.",
-      timestamp: "Tue Jun 20 2025 01:16:13 GMT+0200 (Central European Summer Time)",
-      metadata: {}
+      id: "123ABC",
+      content: "Alright.",
+      role: "assistant",
+      agent: "C3PO",
+      timestamp: "Tue Jun 24 2025 00:17:13 GMT+0200 (Central European Summer Time)"
+    },
+    {
+      id: "123ABC",
+      content: "I'll transfer you to R2D2 so he can assit you with booking your flight, ok?",
+      role: "assistant",
+      agent: "C3PO",
+      timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     }
-  ],
+  ]
+  ,
+  events: [],
   context: {
     passenger_name: "Byro",
     confirmation_number: "8875",
@@ -70,7 +71,7 @@ module.exports = {
   ],
   guardrails: [
     {
-      id: "f1e2d3c4-b5a6-4789-8c7d-6e5f4a3b2c1d",
+      id: "d4e5f6a7-b8c9-4012-9c3d-4e5f6a7b8c9d",
       name: "Relevance Guardrail",
       input: [],
       reasoning: "",
@@ -78,7 +79,7 @@ module.exports = {
       timestamp: "1750725739"
     },
     {
-      id: "a2b3c4d5-e6f7-4890-9a1b-2c3d4e5f6a7b",
+      id: "e5f6a7b8-c9d0-4123-9d4e-5f6a7b8c9d0e",
       name: "Jailbreak Guardrail",
       input: [],
       reasoning: "",

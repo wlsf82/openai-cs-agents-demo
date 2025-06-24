@@ -1,26 +1,26 @@
 module.exports = {
-  conversation_id: "af4a5f3e-1f3d-409b-a2f8-bc43c6669be9",
-  current_agent: "C3PO",
+  conversation_id: "e0f1a2b3-c4d5-6e7f-8a9b-0c1d2e3f4a5b",
+  current_agent: "R2D2",
   messages: [
     {
       id: "123ABC",
-      content: "We have one tomorrow at 3pm.",
+      content: "Hey Byro, I'm R2D2 and I'll book your flight to NY tomorrow at 3pm.",
       role: "assistant",
-      agent: "C3PO",
-      timestamp: "Tue Jun 24 2025 00:17:13 GMT+0200 (Central European Summer Time)"
+      agent: "R2D2",
+      timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     },
     {
       id: "123ABC",
-      content: "Does that work for you?",
+      content: "Can you please send your your passport number?",
       role: "assistant",
-      agent: "C3PO",
+      agent: "R2D2",
       timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     }
   ]
   ,
   events: [
     {
-      id: "a0d6e427-342b-4dee-b7ad-10525f83350b",
+      id: "f6a7b8c9-d0e1-4234-9e5f-6a7b8c9d0e1f",
       type: "handoffs",
       agent: "C3PO",
       content: "",
@@ -37,28 +37,21 @@ module.exports = {
       }
     },
     {
-      id: "c663ce24-45b1-4a56-9d78-8dd9936b452f",
+      id: "a1b2c3d4-e5f6-4789-8a1b-2c3d4e5f6a7b",
       type: "context_update",
-      agent: "R5D4",
-      content: "Client Elise cancelled her flight.",
-      timestamp: "Tue Jun 20 2025 01:16:13 GMT+0200 (Central European Summer Time)",
-      metadata: {}
-    },
-    {
-      id: "9729f555-902b-4a16-8ebb-52223854fb52",
-      type: "tool_call",
-      agent: "BB8",
-      content: "Client John with problems on his mobile app.",
-      timestamp: "Tue Jun 20 2025 01:23:13 GMT+0200 (Central European Summer Time)",
-      metadata: {}
-    },
-    {
-      id: "9c2eb9f3-cf5d-4bc3-95c9-79805f4e5924",
-      type: "tool_output",
-      agent: "BB8",
-      content: "Mobile app issue fixed.",
-      timestamp: "Tue Jun 2 2025 03:33:33 GMT+0200 (Central European Summer Time)",
-      metadata: {}
+      agent: "R2D2",
+      content: "Client Byro wants to schedule a flight to NY for tomorrow at 3pm.",
+      timestamp: "Tue Jun 24 2025 00:16:13 GMT+0200 (Central European Summer Time)",
+      metadata: {
+        source_agent: "string",
+        target_agent: "string",
+        tool_name: "string",
+        tool_args: ["Record<string, any>"],
+        tool_result: "any",
+        context_key: "string",
+        context_value: "any",
+        changes: ""
+      }
     }
   ],
   context: {
@@ -113,7 +106,7 @@ module.exports = {
   ],
   guardrails: [
     {
-      id: "2da7c108-a5f9-4b12-b616-9421f0486296",
+      id: "b3c4d5e6-f7a8-4901-9b2c-3d4e5f6a7b8c",
       name: "Relevance Guardrail",
       input: [],
       reasoning: "",
@@ -121,7 +114,7 @@ module.exports = {
       timestamp: "1750725739"
     },
     {
-      id: "a0d6e427-342b-4dee-b7ad-10525f83350b",
+      id: "c4d5e6f7-a8b9-4012-9c3d-4e5f6a7b8c9d",
       name: "Jailbreak Guardrail",
       input: [],
       reasoning: "",
