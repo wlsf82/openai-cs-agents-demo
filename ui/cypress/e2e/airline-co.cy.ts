@@ -122,4 +122,13 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 800}, () => {
       .find('div:contains(account_number: 442679)')
       .should('be.visible')
   })
+
+  it('shows four runner output', () => {
+    cy.contains('h2', 'Runner Output')
+      .should('be.visible')
+      .next()
+      .find('.text-card-foreground')
+      .should('have.length', 4)
+      .and('be.visible')
+  })
 })
