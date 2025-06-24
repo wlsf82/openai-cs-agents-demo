@@ -1,5 +1,5 @@
 const chatObj = require('../fixtures/chat')
-const messages = require('../fixtures/messages')
+const updatedChatObj = require('../fixtures/updatedChat')
 
 describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 800}, () => {
   beforeEach(() => {
@@ -25,11 +25,16 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 800}, () => {
   })
 
   it('gets an answer right after asking a question to the active agent', () => {
-    const updatedChat = {
-      ...chatObj,
-      messages
-    }
-    cy.intercept('POST', '/chat', updatedChat).as('chatResponse2')
+    const randomDelay = Math.floor(Math.random() * (3000 - 500 + 1)) + 500
+
+    cy.intercept(
+      'POST',
+      '/chat',
+      {
+        delay: randomDelay,
+        fixture: 'updatedChat'
+      }
+    ).as('chatResponse2')
     cy.get('textarea[placeholder="Message..."]')
       .type('What is your next available flight to NY?')
     cy.get('button').click()
