@@ -1,7 +1,7 @@
 const chatObj = require('../fixtures/chat')
 const messages = require('../fixtures/messages')
 
-describe('Airline Co.', () => {
+describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 800}, () => {
   beforeEach(() => {
     cy.intercept('POST', '/chat', chatObj).as('chatResponse')
     cy.visit('/')
