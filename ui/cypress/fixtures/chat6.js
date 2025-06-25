@@ -1,27 +1,66 @@
 module.exports = {
-  conversation_id: "d9e8f7c6-b5a4-3e2d-1c0b-9a8e7d6c5b4a",
-  current_agent: "Triage Agent",
+  conversation_id: "e3b5c7d9-1a2f-4e6b-8c3d-7f2a1b4c5d6e",
+  current_agent: "Booking Agent",
   messages: [
     {
       id: "123ABC",
-      content: "Alright.",
+      content: "I'll have to transfer you to our FAQ Agent.",
       role: "assistant",
-      agent: "Triage Agent",
-      timestamp: "Tue Jun 24 2025 00:17:13 GMT+0200 (Central European Summer Time)"
+      agent: "Booking Agent",
+      timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     },
     {
       id: "123ABC",
-      content: "I'll transfer you to the Booking Agent so they can assit you with booking your flight, ok?",
+      content: "Is that ok?",
       role: "assistant",
-      agent: "Triage Agent",
+      agent: "Booking Agent",
       timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     }
   ]
   ,
-  events: [],
+  events: [
+    {
+      id: "b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d5e",
+      type: "handoffs",
+      agent: "Booking Agent",
+      content: "",
+      timestamp: "Tue Jun 24 2025 00:16:13 GMT+0200 (Central European Summer Time)",
+      metadata: {
+        source_agent: "string",
+        target_agent: "string",
+        tool_name: "string",
+        tool_args: ["Record<string, any>"],
+        tool_result: "any",
+        context_key: "string",
+        context_value: "any",
+        changes: "Record<string, any>"
+      }
+    },
+    {
+      id: "c2d3e4f5-a6b7-4c8d-9e0f-1a2b3c4d5e6f",
+      type: "context_update",
+      agent: "FAQ Agent",
+      content: "Client Byro wants to know if there will be vegan options at tomorrow's flight to NY at 3pm (flight number: JK333).",
+      timestamp: "Tue Jun 24 2025 00:16:13 GMT+0200 (Central European Summer Time)",
+      metadata: {
+        source_agent: "string",
+        target_agent: "string",
+        tool_name: "string",
+        tool_args: ["Record<string, any>"],
+        tool_result: "any",
+        context_key: "string",
+        context_value: "any",
+        changes: ""
+      }
+    }
+  ],
   context: {
     passenger_name: "Byro",
-    account_number: "442679"
+    confirmation_number: "8875",
+    seat_number: "3A",
+    flight_number: "JK333",
+    account_number: "442679",
+    passport_number: "XX555444"
   },
   agents: [
     {

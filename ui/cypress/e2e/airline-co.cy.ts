@@ -1,6 +1,6 @@
 const chatObj = require('../fixtures/chat')
 
-describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 1280}, () => {
+describe('Airline Co.', {viewportWidth: 1800, viewportHeight: 1520}, () => {
   beforeEach(() => {
     cy.intercept('POST', '/chat', chatObj).as('chatResponse')
     cy.visit('/')
@@ -10,7 +10,7 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 1280}, () => {
       .should('be.visible')
       .next()
       .as('agents')
-      .find('div:contains(C3PO)')
+      .find('div:contains(Triage Agent)')
       .should('be.visible')
       .and('contains.text', 'Active')
 
@@ -19,12 +19,12 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 1280}, () => {
       .parent()
       .next()
       .as('chatHistory')
-      .find('div:contains(Hey, there! How can I help you?)')
+      .find('div:contains(Hi, Byro! How can I help you?)')
       .should('be.visible')
   })
 
   it('simulates a chat between customer and multiple agents', () => {
-    const randomDelay = Math.floor(Math.random() * (3000 - 500 + 1)) + 500
+    const randomDelay = Math.floor(Math.random() * (3500 - 500 + 1)) + 500
 
     cy.intercept('POST', '/chat', { delay: randomDelay, fixture: 'chat2' }).as('chatResponse2')
 
@@ -34,16 +34,16 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 1280}, () => {
     cy.wait('@chatResponse2')
 
     cy.get('@chatHistory')
-      .find('div:contains(We have one tomorrow at 3pm.)')
+      .find('div:contains(We have an available flight to NY tomorrow at 3pm.)')
       .should('be.visible')
     cy.get('@chatHistory')
-      .find('div:contains(Does that work for you?)')
+      .find('div:contains(How does that sound to you?)')
       .should('be.visible')
 
     cy.intercept('POST', '/chat', { delay: randomDelay, fixture: 'chat3' }).as('chatResponse3')
 
     cy.get('textarea[placeholder="Message..."]')
-      .type('Sound good.', { delay: 15 })
+      .type('Sound good.', { delay: 50 })
     cy.get('button').click()
     cy.wait('@chatResponse3')
 
@@ -51,7 +51,7 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 1280}, () => {
       .find('div:contains(Alright.)')
       .should('be.visible')
     cy.get('@chatHistory')
-      .find('div:contains(I\'ll transfer you to R2D2 so he can assit you with booking your flight, ok?)')
+      .find('div:contains(I\'ll transfer you to the Booking Agent so they can assit you with booking your flight, ok?)')
       .should('be.visible')
 
     cy.intercept('POST', '/chat', { delay: randomDelay, fixture: 'chat4' }).as('chatResponse4')
@@ -62,7 +62,7 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 1280}, () => {
     cy.wait('@chatResponse4')
 
     cy.get('@chatHistory')
-      .find('div:contains(Hey Byro, I\'m R2D2 and I\'ll book your flight to NY tomorrow at 3pm.)')
+      .find('div:contains(Hey Byro, I\'m the Booking Agent and I\'ll book your flight to NY tomorrow at 3pm.)')
       .should('be.visible')
     cy.get('@chatHistory')
       .find('div:contains(Can you please send your your passport number?)')
@@ -79,13 +79,58 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 1280}, () => {
       .find('div:contains(There you go.)')
       .should('be.visible')
     cy.get('@chatHistory')
-      .find('div:contains(You are booked for tomorrow at 3pm for the flight number AB123 to NY.)')
+      .find('div:contains(You are booked for tomorrow at 3pm for the flight number JK333 to NY.)')
       .should('be.visible')
     cy.get('@chatHistory')
-      .find('div:contains(Your seat nuber is: 5A.)')
+      .find('div:contains(Your seat nuber is: 3A.)')
       .should('be.visible')
     cy.get('@chatHistory')
       .find('div:contains(Have a good flight!)')
+      .should('be.visible')
+
+    cy.intercept('POST', '/chat', { delay: randomDelay, fixture: 'chat6' }).as('chatResponse6')
+
+    cy.get('textarea[placeholder="Message..."]')
+      .type('I have a quick question. Do they have vegan food options during the flight', { delay: 50 })
+
+    cy.get('button').click()
+    cy.wait('@chatResponse6')
+
+    cy.get('@chatHistory')
+      .find('div:contains(I\'ll have to transfer you to our FAQ Agent.)')
+      .should('be.visible')
+    cy.get('@chatHistory')
+      .find('div:contains(Is that ok?)')
+      .should('be.visible')
+
+    cy.intercept('POST', '/chat', { delay: randomDelay, fixture: 'chat7' }).as('chatResponse7')
+
+    cy.get('textarea[placeholder="Message..."]')
+      .type('Sure thing.', { delay: 50 })
+
+    cy.get('button').click()
+    cy.wait('@chatResponse7')
+
+    cy.get('@chatHistory')
+      .find('div:contains(Hi Byro, I\'m glad to inform you we will have vegan options at tomorrow\'s flgith to NY.)')
+      .should('be.visible')
+    cy.get('@chatHistory')
+      .find('div:contains(Is there anything else I can help you with?)')
+      .should('be.visible')
+
+    cy.intercept('POST', '/chat', { delay: randomDelay, fixture: 'chat8' }).as('chatResponse8')
+
+    cy.get('textarea[placeholder="Message..."]')
+      .type('Write me a poem about a delayed flight.', { delay: 50 })
+
+    cy.get('button').click()
+    cy.wait('@chatResponse8')
+
+    cy.get('@chatHistory')
+      .find('div:contains(I can\'t do that.)')
+      .should('be.visible')
+    cy.get('@chatHistory')
+      .find('div:contains(But if you have questions related to flights, bookings, baggage, check-in, flight status, policies, loyalty programs, etc. I\'ll be happy to help.)')
       .should('be.visible')
   })
 
@@ -100,18 +145,23 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 1280}, () => {
 
     cy.get('@agents')
       .should('be.visible')
-      .find('div:contains(C3PO)')
+      .find('div:contains(Triage Agent)')
       .should('be.visible')
       .and('contains.text', 'Active')
 
     cy.get('@agents')
       .should('be.visible')
-      .find('div:contains(R2D2)')
+      .find('div:contains(Booking Agent)')
       .should('be.visible')
 
     cy.get('@agents')
       .should('be.visible')
-      .find('div:contains(BB8)')
+      .find('div:contains(FAQ Agent)')
+      .should('be.visible')
+
+    cy.get('@agents')
+      .should('be.visible')
+      .find('div:contains(Flight Status Agent)')
       .should('be.visible')
   })
 
@@ -169,12 +219,11 @@ describe('Airline Co.', {viewportWidth: 1520, viewportHeight: 1280}, () => {
       .should('be.visible')
   })
 
-  it('shows four runner output', () => {
+  it('shows no runner output', () => {
     cy.contains('h2', 'Runner Output')
       .should('be.visible')
       .next()
       .find('.text-card-foreground')
-      .should('have.length', 1)
-      .and('be.visible')
+      .should('not.exist')
   })
 })

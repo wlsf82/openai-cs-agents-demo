@@ -1,49 +1,68 @@
 module.exports = {
   conversation_id: "f1a2b3c4-d5e6-7f8a-9b0c-1d2e3f4a5b6c",
-  current_agent: "R2D2",
+  current_agent: "Booking Agent",
   messages: [
     {
       id: "123ABC",
       content: "There you go.",
       role: "assistant",
-      agent: "R2D2",
+      agent: "Booking Agent",
       timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     },
     {
       id: "123ABC",
-      content: "You are booked for tomorrow at 3pm for the flight number AB123 to NY.",
+      content: "You are booked for tomorrow at 3pm for the flight number JK333 to NY.",
       role: "assistant",
-      agent: "R2D2",
+      agent: "Booking Agent",
       timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     },
     {
       id: "123ABC",
-      content: "Your seat nuber is: 5A.",
+      content: "Your seat nuber is: 3A.",
       role: "assistant",
-      agent: "R2D2",
+      agent: "Booking Agent",
       timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     },
     {
       id: "123ABC",
       content: "Have a good flight!",
       role: "assistant",
-      agent: "R2D2",
+      agent: "Booking Agent",
       timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     }
   ]
   ,
-  events: [],
+  events: [
+    {
+      id: "b3e4f5a6-c7d8-4e9f-8b0a-1c2d3e4f5a6b",
+      type: "context_update",
+      agent: "Booking Agent",
+      content: "Client Byro is scheduled to flight to NY tomorrow at 3pm at flight JK333 at seat 3A.",
+      timestamp: "Tue Jun 24 2025 00:16:13 GMT+0200 (Central European Summer Time)",
+      metadata: {
+        source_agent: "string",
+        target_agent: "string",
+        tool_name: "string",
+        tool_args: ["Record<string, any>"],
+        tool_result: "any",
+        context_key: "string",
+        context_value: "any",
+        changes: ""
+      }
+    }
+  ],
   context: {
     passenger_name: "Byro",
     confirmation_number: "8875",
     seat_number: "3A",
     flight_number: "JK333",
-    account_number: "442679"
+    account_number: "442679",
+    passport_number: "XX555444"
   },
   agents: [
     {
-      name: "C3PO",
-      description: "Star Wars robot",
+      name: "Triage Agent",
+      description: "A triage agent that can delegate a customer's request to the appropriate agent.",
       handoffs: [],
       tools: [],
       input_guardrails: [
@@ -52,8 +71,8 @@ module.exports = {
       ]
     },
     {
-      name: "R2D2",
-      description: "Star Wars robot",
+      name: "Booking Agent",
+      description: "A helpful agent that can book flights.",
       handoffs: [],
       tools: [],
       input_guardrails: [
@@ -62,30 +81,29 @@ module.exports = {
       ]
     },
     {
-      name: "BB8",
-      description: "Star Wars robot",
+      name: "FAQ Agent",
+      description: "A helpful agent that can answer questions about the airline",
       handoffs: [],
       tools: [],
-      input_guardrails: ["Relevance Guardrail"]
+      input_guardrails: [
+        "Relevance Guardrail",
+        "Jailbreak Guardrail"
+      ]
     },
     {
-      name: "R5D4",
-      description: "Star Wars robot",
+      name: "Flight Status Agent",
+      description: "A agent to provide flight status information.",
       handoffs: [],
       tools: [],
-      input_guardrails: ["Jailbreak Guardrail"]
-    },
-    {
-      name: "C1-10P",
-      description: "Star Wars robot",
-      handoffs: [],
-      tools: [],
-      input_guardrails: []
+      input_guardrails: [
+        "Relevance Guardrail",
+        "Jailbreak Guardrail"
+      ]
     }
   ],
   guardrails: [
     {
-      id: "c5d6e7f8-a9b0-4123-9c4d-5e6f7a8b9c0d",
+      id: "e7f8a9b0-c1d2-4134-9e5f-6a7b8c9d0e1f",
       name: "Relevance Guardrail",
       input: [],
       reasoning: "",
@@ -93,7 +111,7 @@ module.exports = {
       timestamp: "1750725739"
     },
     {
-      id: "d6e7f8a9-b0c1-4234-9d5e-6f7a8b9c0d1e",
+      id: "f8a9b0c1-d2e3-4245-9f6a-7b8c9d0e1f2a",
       name: "Jailbreak Guardrail",
       input: [],
       reasoning: "",

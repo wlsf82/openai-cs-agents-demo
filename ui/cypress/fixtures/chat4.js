@@ -1,19 +1,19 @@
 module.exports = {
   conversation_id: "e0f1a2b3-c4d5-6e7f-8a9b-0c1d2e3f4a5b",
-  current_agent: "R2D2",
+  current_agent: "Booking Agent",
   messages: [
     {
       id: "123ABC",
-      content: "Hey Byro, I'm R2D2 and I'll book your flight to NY tomorrow at 3pm.",
+      content: "Hey Byro, I'm the Booking Agent and I'll book your flight to NY tomorrow at 3pm.",
       role: "assistant",
-      agent: "R2D2",
+      agent: "Booking Agent",
       timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     },
     {
       id: "123ABC",
       content: "Can you please send your your passport number?",
       role: "assistant",
-      agent: "R2D2",
+      agent: "Booking Agent",
       timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     }
   ]
@@ -22,7 +22,7 @@ module.exports = {
     {
       id: "f6a7b8c9-d0e1-4234-9e5f-6a7b8c9d0e1f",
       type: "handoffs",
-      agent: "C3PO",
+      agent: "Triage Agent",
       content: "",
       timestamp: "Tue Jun 24 2025 00:16:13 GMT+0200 (Central European Summer Time)",
       metadata: {
@@ -39,7 +39,7 @@ module.exports = {
     {
       id: "a1b2c3d4-e5f6-4789-8a1b-2c3d4e5f6a7b",
       type: "context_update",
-      agent: "R2D2",
+      agent: "Booking Agent",
       content: "Client Byro wants to schedule a flight to NY for tomorrow at 3pm.",
       timestamp: "Tue Jun 24 2025 00:16:13 GMT+0200 (Central European Summer Time)",
       metadata: {
@@ -56,15 +56,12 @@ module.exports = {
   ],
   context: {
     passenger_name: "Byro",
-    confirmation_number: "8875",
-    seat_number: "3A",
-    flight_number: "JK333",
     account_number: "442679"
   },
   agents: [
     {
-      name: "C3PO",
-      description: "Star Wars robot",
+      name: "Triage Agent",
+      description: "A triage agent that can delegate a customer's request to the appropriate agent.",
       handoffs: [],
       tools: [],
       input_guardrails: [
@@ -73,8 +70,8 @@ module.exports = {
       ]
     },
     {
-      name: "R2D2",
-      description: "Star Wars robot",
+      name: "Booking Agent",
+      description: "A helpful agent that can book flights.",
       handoffs: [],
       tools: [],
       input_guardrails: [
@@ -83,25 +80,24 @@ module.exports = {
       ]
     },
     {
-      name: "BB8",
-      description: "Star Wars robot",
+      name: "FAQ Agent",
+      description: "A helpful agent that can answer questions about the airline",
       handoffs: [],
       tools: [],
-      input_guardrails: ["Relevance Guardrail"]
+      input_guardrails: [
+        "Relevance Guardrail",
+        "Jailbreak Guardrail"
+      ]
     },
     {
-      name: "R5D4",
-      description: "Star Wars robot",
+      name: "Flight Status Agent",
+      description: "A agent to provide flight status information.",
       handoffs: [],
       tools: [],
-      input_guardrails: ["Jailbreak Guardrail"]
-    },
-    {
-      name: "C1-10P",
-      description: "Star Wars robot",
-      handoffs: [],
-      tools: [],
-      input_guardrails: []
+      input_guardrails: [
+        "Relevance Guardrail",
+        "Jailbreak Guardrail"
+      ]
     }
   ],
   guardrails: [

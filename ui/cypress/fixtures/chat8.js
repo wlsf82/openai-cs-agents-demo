@@ -1,19 +1,19 @@
 module.exports = {
-  conversation_id: "d9e8f7c6-b5a4-3e2d-1c0b-9a8e7d6c5b4a",
-  current_agent: "Triage Agent",
+  conversation_id: "a9b8c7d6-e5f4-4a3b-9c2d-1e0f2a3b4c5d",
+  current_agent: "FAQ Agent",
   messages: [
     {
       id: "123ABC",
-      content: "Alright.",
+      content: "I can't do that.",
       role: "assistant",
-      agent: "Triage Agent",
-      timestamp: "Tue Jun 24 2025 00:17:13 GMT+0200 (Central European Summer Time)"
+      agent: "FAQ Agent",
+      timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     },
     {
       id: "123ABC",
-      content: "I'll transfer you to the Booking Agent so they can assit you with booking your flight, ok?",
+      content: "But if you have questions related to flights, bookings, baggage, check-in, flight status, policies, loyalty programs, etc. I'll be happy to help.",
       role: "assistant",
-      agent: "Triage Agent",
+      agent: "FAQ Agent",
       timestamp: "Tue Jun 24 2025 00:17:15 GMT+0200 (Central European Summer Time)"
     }
   ]
@@ -21,7 +21,12 @@ module.exports = {
   events: [],
   context: {
     passenger_name: "Byro",
-    account_number: "442679"
+    confirmation_number: "8875",
+    seat_number: "3A",
+    flight_number: "JK333",
+    account_number: "442679",
+    passport_number: "XX555444",
+    vegan_food_available_at_the_flight: "true"
   },
   agents: [
     {
@@ -67,15 +72,15 @@ module.exports = {
   ],
   guardrails: [
     {
-      id: "d4e5f6a7-b8c9-4012-9c3d-4e5f6a7b8c9d",
+      id: "c1d2e3f4-a5b6-4c7d-8e9f-0a1b2c3d4e5f",
       name: "Relevance Guardrail",
       input: [],
       reasoning: "",
-      passed: true,
+      passed: false,
       timestamp: "1750725739"
     },
     {
-      id: "e5f6a7b8-c9d0-4123-9d4e-5f6a7b8c9d0e",
+      id: "d2e3f4a5-b6c7-4d8e-9f0a-1b2c3d4e5f6a",
       name: "Jailbreak Guardrail",
       input: [],
       reasoning: "",
