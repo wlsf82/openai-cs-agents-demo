@@ -133,3 +133,9 @@ node_modules/
 # ui stuff
 
 ui/.next/
+
+# Cypress
+ui/cypress.env.json
+ui/cypress/downloads/
+ui/cypress/screenshots/
+ui/cypress/videos/
